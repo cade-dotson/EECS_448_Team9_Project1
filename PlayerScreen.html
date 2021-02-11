@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" href="styles.css">
+
+        <!--Script for loading game board and allowing ship selection-->
+        <script src="gridLoad_shipSelect.js"></script>
+
+        <!--Script for playing a game against a bot-->
+        <script src="againstBot.js"></script>
+
+        <!--Possible script for playing against an opponent online-->
+        <!-- <script src="serverTest.js"></script> -->
+        
+    </head>
+    <body>
+        <!-- intro screen buttons--> 
+        <div id="configButtons">
+            <button class="introScreen" id="botGame" onclick="main(this)">Play Against Computer</button>
+            <select name="numShips" id="chooseNumShips">
+                    <option value="1">Short (1 ship)</option>
+                    <option value="2">2 ships</option>
+                    <option value="3">Medium (3 ships)</option>
+                    <option value="4">4 ships</option>
+                    <option value="5">5 ships</option>
+                    <option value="6">Long (6 ships)</option>
+            </select>
+            <button class="introScreen" id="onlineGame" onclick="main()">Play Online</button>
+        </div>
+
+        <!-- Div for boards; actual buttons are appended using js script--> 
+        <div id="boardDiv"><span id="board"></span></div>
+        <!-- Div for player ready buttons and to reset their ship board up until game has started--> 
+        <span id="buttons">
+            <button id="reset" class="startButton" hidden=true onclick="resetShipGrid()">Reset</button>
+            <!-- <button class="startButton" hidden=true>Start</button> -->
+            <button id="ready" onclick="botIsReady()" class="startButton" hidden=true>Ready</button>
+        </span>
+
+    </body>
+</html>

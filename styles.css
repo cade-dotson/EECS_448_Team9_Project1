@@ -1,0 +1,97 @@
+
+.grid{
+    border: 1px solid black;
+    display: inline-table;
+    width: 10%;
+    display: shrink;
+}
+#configButtons{
+    display: flex;
+    margin: auto;
+}
+
+.introScreen{
+    border-block-color: teal;
+    flex-grow: 1;
+    padding-top:10%;
+    padding-bottom:10%;
+}
+
+.unselectedShip{
+    border-radius: 5px;
+    border: 4px double #000000;
+    padding: 20px;
+    background-color: white;
+}
+
+.selectedShip{
+    border-radius: 10px;
+    border: 4px double #000000;
+    padding: 20px;
+    background-color: green;
+}
+
+.attackedShip{
+    border-radius: 10px;
+    border: 4px double #000000;
+    padding: 20px;
+    background-color: red;
+}
+
+.attackChoice{
+    border-radius: 5px;
+    border: 4px double #000000;
+    padding: 20px;
+    background-color: white;
+}
+
+.successfulAttack{
+    border-radius: 5px;
+    border: 4px double #000000;
+    padding: 20px;
+    background-color: red;
+}
+
+.pendingAttack{
+    border-radius: 5px;
+    border: 4px double #000000;
+    padding: 20px;
+    background-color: pink;
+}
+
+.missedAttack{
+    border-radius: 5px;
+    border: 4px double #000000;
+    padding: 20px;
+    background-color: orange;
+}
+
+table{
+    display: flex;
+}
+
+#board{
+    display: flex;
+    margin: auto;
+    /* align-self: center; */
+}
+
+.startButton{
+    padding: 10px;
+    margin: auto;
+    
+}
+
+#buttons{
+    /* align-items:center; */
+    display: flex;
+    /* padding: 10px; */
+    margin-left:11%;
+    margin-right:11%;
+}
+
+#boardDiv {
+    align-items: center;
+    display: flex;
+}
+
