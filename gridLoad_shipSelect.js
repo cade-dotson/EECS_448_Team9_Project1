@@ -55,6 +55,7 @@ function main(gameType)
     if(gameType.id === 'botGame')
     {
         loadGrid(attackBot);
+        document.querySelector('#ready').onclick = botIsReady;
     }
     // else if(gameType.id === 'onlineGame')//for possible game against another player
     // {
