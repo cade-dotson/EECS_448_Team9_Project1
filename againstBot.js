@@ -24,6 +24,10 @@ function attackBot(row, col, el)
         numHits++;
         attackArr[row][col] = 1;
         el.className = 'successfulAttack';
+        if(numHits === hitsToWin)
+        {
+            let winNotification = document.createElement()
+        }
         botTurn();
     }
     else

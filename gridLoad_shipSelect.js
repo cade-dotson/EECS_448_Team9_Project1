@@ -33,6 +33,7 @@ var canAttack = false;
 var shipOrientation = 0;
 var numShips;  
 var numPieces;
+var hitsToWin = 0;
 
 
 //main function calls loadgrid and passes the function used by the player for attacking
@@ -42,6 +43,10 @@ function main(gameType)
     shipNumSelect = document.createElement('select');
     configButtons = document.querySelector('#configButtons');
     numShipsChoice=parseInt(document.querySelector('#chooseNumShips').value);
+    for(let i=numShipsChoice; i>0; i--)
+    {
+        hitsToWin += i;
+    }
     numShips=numShipsChoice;
     numPieces=numShips;
     configButtons.remove();
