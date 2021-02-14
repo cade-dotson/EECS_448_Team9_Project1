@@ -167,6 +167,13 @@ function placeShipPiece(row, col, el)
         el.className = 'selectedShip';
         shipArr[row][col] = numShips;
         numPieces--;
+        if(numPieces == 0)
+        {
+            numShips--;
+            numPieces = numShips;
+            shipOrientation = 0;
+            console.log("ship selection over");
+        }
     }
     else if(numPieces == 0 && numShips == 0)
     {
@@ -174,14 +181,6 @@ function placeShipPiece(row, col, el)
         selectionPhase = false;
         //check if ready for sending board config to server
     }
-    else if(numPieces == 0)
-    {
-        numShips--;
-        numPieces = numShips;
-        shipOrientation = 0;
-        console.log("ship selection over");
-    }
-
 }
 
 function canPlace(row, col)

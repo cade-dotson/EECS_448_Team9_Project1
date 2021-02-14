@@ -42,24 +42,25 @@ function attackBot(row, col, el)
 function botTurn()
 {
     //test
-    botAttackRow =  0;
-    botAttackCol = 0;
+    botAttackRow =  Math.random()*10 | 0;
+    botAttackCol = Math.random()*10 | 0;
 
     if(shipArr[botAttackRow][botAttackCol] !== 0)
     {
         console.log('bot hit');
         botHits++;
-        prevRow = botAttackRow;
-        prevCol = botAttackCol;
+        botAttackRow =  Math.random()*10 | 0;
+        botAttackCol = Math.random()*10 | 0;
         shipArr[botAttackRow][botAttackCol] = 6;
         document.querySelector('#boardDiv').querySelector('table').rows[botAttackRow].cells[botAttackCol].querySelector('.selectedShip').className = 'attackedShip';
-        
         //change shipArr to reflect a hit
         canAttack = true;
     }
     else
     {
         console.log('bot missed');
+        botAttackRow =  Math.random()*10 | 0;
+        botAttackCol = Math.random()*10 | 0;
         canAttack = true;
     }
 }
