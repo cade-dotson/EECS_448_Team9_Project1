@@ -1,4 +1,7 @@
-
+body
+{
+	background-color: #c2b280;
+}
 .grid{
     border: 1px solid black;
     display: inline-table;
@@ -11,12 +14,18 @@
 }
 
 .introScreen{
+    color: white;
+    background-color: #00008B;
     border-block-color: teal;
     flex-grow: 1;
     padding-top:10%;
     padding-bottom:10%;
 }
-
+#chooseNumShips
+{
+   background-color: #76b6c4;
+   color: white;
+}
 .unselectedShip{
     border-radius: 5px;
     border: 4px double #000000;
