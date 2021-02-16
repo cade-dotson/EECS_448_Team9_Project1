@@ -105,7 +105,7 @@ function loadSelectionGrid(playerShipArray)
     notifications.font = '30px Arial';
     if(whosTurn === 1)
     {
-        notifications.fillText('Choose Your Ship Positions Player1', 0, 100);
+        notifications.fillText('Choose Your Ship Positions Player1', 0, 50);
     }
     else
     {

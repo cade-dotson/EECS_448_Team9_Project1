@@ -2,6 +2,10 @@ body
 {
 	background-color: #c2b280;
 }
+canvas{
+    display: flex;
+    margin: auto;
+}
 .grid{
     border: 1px solid black;
     display: inline-table;
