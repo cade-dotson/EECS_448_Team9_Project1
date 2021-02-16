@@ -208,7 +208,7 @@ function botIsReady()
     }
     else
     {
-        console.log("No you are not.");
+        console.log("No you are not ready.");
         //debugging
     }
 }
