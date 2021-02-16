@@ -21,7 +21,7 @@ var botArr = [
 function attackBot(row, col, el)
 {
     //test
-    if(botArr[row][col] === 1 && attackArr[row][col] === 0)
+    if(botArr[row][col] === 1)
     {
         numHits++;
         attackArr[row][col] = 1;

@@ -54,8 +54,13 @@ function main(gameType)
             function(el){el.hidden = false;} );
     if(gameType.id === 'botGame')
     {
-        loadGrid(attackBot);
+        loadGrid(attackBot, shipArr);
         document.querySelector('#ready').onclick = botIsReady;
+    }
+    else if(gameType.id === 'local')
+    {
+        loadSelectionGrid(attackLocal, shipArr);
+        document.querySelector('#ready').onclick = localIsReady;
     }
     // else if(gameType.id === 'onlineGame')//for possible game against another player
     // {
@@ -65,7 +70,7 @@ function main(gameType)
     console.log(numPieces);
 }
 
-function loadGrid(attackFunc)
+function loadGrid(attackFunc, playerShipArray)
 {
     var gameBoard = document.querySelector('#board');
     var shipBoard = document.createElement('table');
@@ -94,7 +99,7 @@ function loadGrid(attackFunc)
                 if(selectionPhase === true)
                 {
                     //console.log("d");
-                    placeShipPiece(this.parentNode.parentNode.rowIndex, this.parentNode.cellIndex, this);
+                    placeShipPiece(this.parentNode.parentNode.rowIndex, this.parentNode.cellIndex, this, playerShipArray);
                     mouseDown = true;
                 }
             });
@@ -103,15 +108,14 @@ function loadGrid(attackFunc)
                 {
                     if(mouseDown === true && numPieces>0)
                     {
-                        placeShipPiece(this.parentNode.parentNode.rowIndex, this.parentNode.cellIndex, this);
-                        
+                        placeShipPiece(this.parentNode.parentNode.rowIndex, this.parentNode.cellIndex, this, playerShipArray);
                     }
                 }
             });
             shipBtn.addEventListener("mouseup", function(){
                 if(selectionPhase === true)
                 {
-                    placeShipPiece(this.parentNode.parentNode.rowIndex, this.parentNode.cellIndex, this);
+                    placeShipPiece(this.parentNode.parentNode.rowIndex, this.parentNode.cellIndex, this, playerShipArray);
                     
                     mouseDown = false;
                 }
@@ -160,12 +164,12 @@ function resetShipGrid()
     }
 }
 
-function placeShipPiece(row, col, el)
+function placeShipPiece(row, col, el, arr)
 {
     if(canPlace(row, col) && numPieces > 0 )
     {
         el.className = 'selectedShip';
-        shipArr[row][col] = numShips;
+        arr[row][col] = numShips;
         numPieces--;
         if(numPieces == 0)
         {
