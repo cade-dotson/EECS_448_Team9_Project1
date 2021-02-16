@@ -1,33 +1,7 @@
 
 //features to add: ???local two-player games???
-var attackArr = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-var shipArr = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
-
 var numShipsChoice;
 var selectionPhase = true;
-var player;
 var numHits = 0;
 var canAttack = false;
 var shipOrientation = 0;
@@ -54,12 +28,12 @@ function main(gameType)
             function(el){el.hidden = false;} );
     if(gameType.id === 'botGame')
     {
-        loadGrid(attackBot, shipArr);
+        loadGrid(attackBot, shipArr, attackArr);
         document.querySelector('#ready').onclick = botIsReady;
     }
     else if(gameType.id === 'local')
     {
-        loadSelectionGrid(attackLocal, shipArr);
+        loadSelectionGrid(p1shipArr);
         document.querySelector('#ready').onclick = localIsReady;
     }
     // else if(gameType.id === 'onlineGame')//for possible game against another player
@@ -70,7 +44,7 @@ function main(gameType)
     console.log(numPieces);
 }
 
-function loadGrid(attackFunc, playerShipArray)
+function loadGrid(attackFunc, playerShipArray, playerAttackArray)
 {
     var gameBoard = document.querySelector('#board');
     var shipBoard = document.createElement('table');
@@ -131,7 +105,7 @@ function loadGrid(attackFunc, playerShipArray)
             var atkBtn = document.createElement('button');
             atkBtn.className = 'attackChoice';
             atkBtn.addEventListener("click", function(){
-                if(attackArr[this.parentNode.parentNode.rowIndex][this.parentNode.cellIndex] === 0 && canAttack)
+                if(playerAttackArray[this.parentNode.parentNode.rowIndex][this.parentNode.cellIndex] === 0 && canAttack)
                 {
                     this.className = 'pendingAttack';
                     canAttack = false;
@@ -183,7 +157,6 @@ function placeShipPiece(row, col, el, arr)
     {
         console.log("selection phase over");
         selectionPhase = false;
-        //check if ready for sending board config to server
     }
 }
 

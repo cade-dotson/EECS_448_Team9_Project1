@@ -1,10 +1,30 @@
 //separate methods for use in game against bot
 //may be implemented in server later
-var botHits = 0;
-let prevRow;
-let prevCol;
-let botNumShips;
 
+var attackArr = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+var shipArr = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
 var botArr = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -18,9 +38,12 @@ var botArr = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
+var botHits = 0;
+let prevRow;
+let prevCol;
+let botNumShips;
 function attackBot(row, col, el)
 {
-    //test
     if(botArr[row][col] === 1)
     {
         numHits++;
@@ -41,7 +64,6 @@ function attackBot(row, col, el)
 
 function botTurn()
 {
-    //test
     botAttackRow =  Math.random()*10 | 0;
     botAttackCol = Math.random()*10 | 0;
 
@@ -52,8 +74,7 @@ function botTurn()
         botAttackRow =  Math.random()*10 | 0;
         botAttackCol = Math.random()*10 | 0;
         shipArr[botAttackRow][botAttackCol] = 6;
-        document.querySelector('#boardDiv').querySelector('table').rows[botAttackRow].cells[botAttackCol].querySelector('.selectedShip').className = 'attackedShip';
-        //change shipArr to reflect a hit
+        document.querySelector('#boardDiv').querySelector('table').rows[botAttackRow].cells[botAttackCol].querySelector('.selectedShip').className = 'attackedShip';//change shipArr to reflect a hit
         canAttack = true;
     }
     else

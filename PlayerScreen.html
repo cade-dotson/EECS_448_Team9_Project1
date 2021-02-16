@@ -9,6 +9,9 @@
         <!--Script for loading game board and allowing ship selection-->
         <script src="gridLoad_shipSelect.js"></script>
 
+        <!--Script for playing a local two-player game -->
+        <script src="againstLocalPlayer.js"></script>
+
         <!--Script for playing a game against a bot-->
         <script src="againstBot.js"></script>
 
@@ -19,7 +22,7 @@
     <body>
         <!-- intro screen buttons--> 
         <div id="configButtons">
-            <button class="introScreen" id="botGame" onclick="main(this)">Play Against Computer</button>
+            <button class="introScreen" id="local" onclick="main(this)">Play Against Friend Locally</button>
             <select name="numShips" id="chooseNumShips">
                     <option value="1">Short (1 ship)</option>
                     <option value="2">2 ships</option>
@@ -28,7 +31,7 @@
                     <option value="5">5 ships</option>
                     <option value="6">Long (6 ships)</option>
             </select>
-            <button class="introScreen" id="onlineGame" onclick="main()">Play Online</button>
+            <button class="introScreen" id="botGame" onclick="main(this)">Play Against Computer</button>
         </div>
 
         <!-- Div for boards; actual buttons are appended using js script--> 
